@@ -28,7 +28,7 @@ int main()
 	*(strAll + 6) = str7;
 
 	cout << "\n";												
-	if (checkEvenNumberOfDuplicates(strAll, size)) cout << "Array has even number of duplicates." << endl;			//checking function checkEvenNumberOfDuplicates
+	if (checkEvenNumberOfDuplicates(strAll, size)) cout << "Array has even number of duplicates." << endl;		//checking function checkEvenNumberOfDuplicates
 	else cout << "Array has odd number of duplicates." << endl;
 
 	for (int i = 0; i < size; i++)
@@ -76,7 +76,7 @@ bool checkEvenNumberOfDuplicates(const char* const* const arr, const int size)
 
 			if (counter % 2 == 0)
 			{
-				for (int i = 0; i < size; i++)					// deleting created array copy before returning true
+				for (int i = 0; i < size; i++)		// deleting created array copy before returning true
 				{
 					delete[] * (arrCopy + i);
 				}
@@ -85,7 +85,7 @@ bool checkEvenNumberOfDuplicates(const char* const* const arr, const int size)
 			}
 		}
 		
-		for (int i = 0; i < size; i++)							// deleting created array copy before returning false
+		for (int i = 0; i < size; i++)		// deleting created array copy before returning false
 		{
 			delete[] * (arrCopy + i);
 		}
