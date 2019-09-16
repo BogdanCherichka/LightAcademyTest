@@ -1,9 +1,12 @@
+// LightAcademyTest
+
 #include <iostream>
 using namespace std;
 #include <cctype>
 #include <cstring>
 
-bool checkEvenNumber(const char* const* const, const int);
+template<typename T>
+bool checkEvenNumberOfDuplicates(const T* const* const, const int);
 
 int main()
 {
@@ -32,9 +35,9 @@ int main()
 		cout << *(strAll + i) << endl;
 	}
 
-	cout << "\n\n\n";												//checking function checkEvenNumber
-	if (checkEvenNumber(strAll, size)) cout << "Returned true." << endl;
-	else cout << "Returned false." << endl;
+	cout << "\n";												
+	if (checkEvenNumberOfDuplicates(strAll, size)) cout << "Array 1 has even number of duplicates." << endl;			//checking function checkEvenNumberOfDuplicates
+	else cout << "Array 1 has odd number of duplicates." << endl;
 
 
 	for (int i = 0; i < size; i++)
@@ -46,12 +49,13 @@ int main()
 	return 0;
 }
 
-bool checkEvenNumber(const char* const* const arr, const int size)
+template<typename T>
+bool checkEvenNumberOfDuplicates(const T* const* const arr, const int size)
 {
 	if (arr)
 	{	
-		char** arrCopy = nullptr;										//creating a copy of array with all-lower register for saving original data
-		arrCopy = new char* [size] {};
+		T** arrCopy = nullptr;										//creating a copy of array with all-lower register for saving original data
+		arrCopy = new T* [size] {};
 		if (arrCopy)
 		{
 			for (int i = 0; i < size; i++)
@@ -60,7 +64,7 @@ bool checkEvenNumber(const char* const* const arr, const int size)
 
 				while (*(arrCopy + i) == nullptr)
 				{
-					*(arrCopy + i) = new char[15]{ '\0' };
+					*(arrCopy + i) = new T[15]{};
 				}								
 				strcpy_s(*(arrCopy + i), (int)strlen(*(arr + i)) + 1, *(arr + i));
 				
@@ -70,9 +74,7 @@ bool checkEvenNumber(const char* const* const arr, const int size)
 				}
 			}
 		}
-
 		
-
 		for (int i = 0; i < size; i++)
 		{
 			int counter{};
@@ -98,8 +100,8 @@ bool checkEvenNumber(const char* const* const arr, const int size)
 			delete[] * (arrCopy + i);
 		}
 		delete[] arrCopy;
-
 		return false;
 	}
 	cout << "Error! Array was not created." << endl;
 	return false;
+}
