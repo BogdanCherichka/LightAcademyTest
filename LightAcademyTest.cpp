@@ -1,5 +1,3 @@
-// LightAcademyTest
-
 #include <iostream>
 using namespace std;
 #include <cctype>
