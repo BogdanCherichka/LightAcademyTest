@@ -26,6 +26,11 @@ int main()
 	*(strAll + 4) = str5;
 	*(strAll + 5) = str6;
 	*(strAll + 6) = str7;
+	
+	for (int i = 0; i < size; i++)
+	{
+		cout << *(strAll + i) << endl;
+	}
 
 	cout << "\n";												
 	if (checkEvenNumberOfDuplicates(strAll, size)) cout << "Array has even number of duplicates." << endl;		//checking function checkEvenNumberOfDuplicates
