@@ -5,8 +5,7 @@ using namespace std;
 #include <cctype>
 #include <cstring>
 
-template<typename T>
-bool checkEvenNumberOfDuplicates(const T* const* const, const int);
+bool checkEvenNumberOfDuplicates(const char* const* const, const int);
 
 int main()
 {
@@ -39,7 +38,6 @@ int main()
 	if (checkEvenNumberOfDuplicates(strAll, size)) cout << "Array has even number of duplicates." << endl;			//checking function checkEvenNumberOfDuplicates
 	else cout << "Array has odd number of duplicates." << endl;
 
-
 	for (int i = 0; i < size; i++)
 	{
 		delete[] *(strAll + i);
@@ -49,13 +47,12 @@ int main()
 	return 0;
 }
 
-template<typename T>
-bool checkEvenNumberOfDuplicates(const T* const* const arr, const int size)
+bool checkEvenNumberOfDuplicates(const char* const* const arr, const int size)
 {
 	if (arr)
 	{	
-		T** arrCopy = nullptr;										//creating a copy of array with all-lower register for saving original data
-		arrCopy = new T* [size] {};
+		char** arrCopy = nullptr;										//creating a copy of array with all-lower register for saving original data
+		arrCopy = new char* [size] {};
 		if (arrCopy)
 		{
 			for (int i = 0; i < size; i++)
@@ -64,7 +61,7 @@ bool checkEvenNumberOfDuplicates(const T* const* const arr, const int size)
 
 				while (*(arrCopy + i) == nullptr)
 				{
-					*(arrCopy + i) = new T[15]{};
+					*(arrCopy + i) = new char[15]{};
 				}								
 				strcpy_s(*(arrCopy + i), (int)strlen(*(arr + i)) + 1, *(arr + i));
 				
