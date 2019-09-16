@@ -36,8 +36,8 @@ int main()
 	}
 
 	cout << "\n";												
-	if (checkEvenNumberOfDuplicates(strAll, size)) cout << "Array 1 has even number of duplicates." << endl;			//checking function checkEvenNumberOfDuplicates
-	else cout << "Array 1 has odd number of duplicates." << endl;
+	if (checkEvenNumberOfDuplicates(strAll, size)) cout << "Array has even number of duplicates." << endl;			//checking function checkEvenNumberOfDuplicates
+	else cout << "Array has odd number of duplicates." << endl;
 
 
 	for (int i = 0; i < size; i++)
